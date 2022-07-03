@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="14dp"
+            android:text="Sanjay Mishra"
+            android:textColor="@color/purpleFont"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/avatarImg"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_briefcase"
+            app:layout_constraintBottom_toBottomOf="@id/business"
+            app:layout_constraintEnd_toStartOf="@id/phone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/business" />
+
+
+        <TextView
+            android:id="@+id/business"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="4dp"
+            android:text="LPG Supplier"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/avatarImg"
+            app:layout_constraintTop_toBottomOf="@id/name" />
+
+        <TextView
+            android:id="@+id/phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="14dp"
+            android:text="+91 7008 123 456"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@id/mobileImg"
+            app:layout_constraintTop_toBottomOf="@id/business"
+             />
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="0dp"
+            android:src="@drawable/ic_call"
+            app:layout_constraintBottom_toBottomOf="@id/phone"
+            app:layout_constraintStart_toEndOf="@id/phone"
+            app:layout_constraintTop_toTopOf="@id/phone" />
+
+        <ImageView
+            android:id="@+id/mobileImg"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/ic_mobile"
+            app:layout_constraintBottom_toBottomOf="@id/phone"
+            app:layout_constraintEnd_toStartOf="@id/phone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/phone" />
+
+        <ImageView
+            android:id="@+id/locationImp"
+            android:layout_width="12dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginEnd="4dp"
+            android:src="@drawable/ic_location"
+            app:layout_constraintBottom_toBottomOf="@id/address"
+            app:layout_constraintEnd_toStartOf="@id/address"
+            app:layout_constraintTop_toTopOf="@id/address" />
+
+        <TextView
+            android:id="@+id/address"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_marginBottom="14dp"
+            android:layout_marginEnd="10dp"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:text="Bhubaneswar, Odisha, India"
+            app:layout_constraintStart_toStartOf="@id/guideline5"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.60" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="10dp"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:background="@color/white2"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/calenderImg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/date"
+                app:layout_constraintBottom_toBottomOf="@id/date"
+                android:src="@drawable/ic_calendar"
+                android:layout_width="14dp"
+                android:layout_height="0dp"/>
+
+            <TextView
+                android:id="@+id/date"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/calenderImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="@color/blue"
+                android:text="03-04-2022"/>
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.cardview.widget.CardView>

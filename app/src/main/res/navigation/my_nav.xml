@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/home_frag">
+
+    <fragment
+        android:id="@+id/home_frag"
+        android:name="com.bceclub.app.home_frag"
+        android:label="fragment_home_frag"
+        tools:layout="@layout/fragment_home_frag" >
+        <action
+            android:id="@+id/action_home_frag_to_reviewFragment"
+            app:destination="@id/reviewFragment" />
+        <action
+            android:id="@+id/action_home_frag_to_guestList"
+            app:destination="@id/guestList" />
+        <action
+            android:id="@+id/action_home_frag_to_businessLeadDetailFragment"
+            app:destination="@id/businessLeadDetailFragment" />
+        <action
+            android:id="@+id/action_home_frag_to_requestAlert2"
+            app:destination="@id/requestAlert2" />
+        <action
+            android:id="@+id/action_home_frag_to_favouriteConnections"
+            app:destination="@id/favouriteConnections" />
+        <action
+            android:id="@+id/action_home_frag_to_businessGiven2"
+            app:destination="@id/businessGiven2" />
+    </fragment>
+    <fragment
+        android:id="@+id/member_frag"
+        android:name="com.bceclub.app.member_frag"
+        android:label="fragment_member_frag"
+        tools:layout="@layout/fragment_member_frag" >
+        <action
+            android:id="@+id/action_member_frag_to_memberDetails"
+            app:destination="@id/memberDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/profile_frag"
+        android:name="com.bceclub.app.profile_frag"
+        android:label="fragment_profile_frag"
+        tools:layout="@layout/fragment_profile_frag" />
+    <fragment
+        android:id="@+id/more_frag"
+        android:name="com.bceclub.app.more_frag"
+        android:label="fragment_more_frag"
+        tools:layout="@layout/fragment_more_frag" >
+        <action
+            android:id="@+id/action_more_frag_to_tenderList"
+            app:destination="@id/tenderList" />
+        <action
+            android:id="@+id/action_more_frag_to_paymentTransaction"
+            app:destination="@id/paymentTransaction" />
+        <action
+            android:id="@+id/action_more_frag_to_helpDesk"
+            app:destination="@id/helpDesk" />
+        <action
+            android:id="@+id/action_more_frag_to_memberAsk2"
+            app:destination="@id/memberAsk2" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/memberDetails"
+        android:name="com.bceclub.app.MemberDetails"
+        android:label="fragment_member_details"
+        tools:layout="@layout/fragment_member_details" >
+        <argument
+            android:name="memberID"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/guestList"
+        android:name="com.bceclub.app.GuestList"
+        android:label="fragment_guest_list"
+        tools:layout="@layout/fragment_guest_list" >
+        <action
+            android:id="@+id/action_guestList_to_addGuest"
+            app:destination="@id/addGuest" />
+    </fragment>
+    <fragment
+        android:id="@+id/reviewFragment"
+        android:name="com.bceclub.app.ReviewFragment"
+        android:label="fragment_review"
+        tools:layout="@layout/fragment_review" />
+    <fragment
+        android:id="@+id/businessLeadDetailFragment"
+        android:name="com.bceclub.app.BusinessLeadDetailFragment"
+        android:label="fragment_business_lead_detail"
+        tools:layout="@layout/fragment_business_lead_detail" />
+    <fragment
+        android:id="@+id/addGuest"
+        android:name="com.bceclub.app.AddGuest"
+        android:label="fragment_add_guest"
+        tools:layout="@layout/fragment_add_guest" >
+        <action
+            android:id="@+id/action_addGuest_to_guestList"
+            app:destination="@id/guestList" />
+        <argument
+            android:name="userId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/tenderList"
+        android:name="com.bceclub.app.TenderList"
+        android:label="fragment_tender_list"
+        tools:layout="@layout/fragment_tender_list" />
+    <fragment
+        android:id="@+id/paymentTransaction"
+        android:name="com.bceclub.app.PaymentTransaction"
+        android:label="fragment_payment_transaction"
+        tools:layout="@layout/fragment_payment_transaction" />
+    <fragment
+        android:id="@+id/helpDesk"
+        android:name="com.bceclub.app.HelpDesk"
+        android:label="fragment_help_desk"
+        tools:layout="@layout/fragment_help_desk" />
+    <fragment
+        android:id="@+id/memberAsk2"
+        android:name="com.bceclub.app.memberAsk"
+        android:label="fragment_member_ask"
+        tools:layout="@layout/fragment_member_ask" />
+    <fragment
+        android:id="@+id/requestAlert2"
+        android:name="com.bceclub.app.RequestAlert"
+        android:label="fragment_request_alert"
+        tools:layout="@layout/fragment_request_alert" />
+    <fragment
+        android:id="@+id/favouriteConnections"
+        android:name="com.bceclub.app.FavouriteConnections"
+        android:label="fragment_favourite_connections"
+        tools:layout="@layout/fragment_favourite_connections" />
+    <fragment
+        android:id="@+id/businessGiven2"
+        android:name="com.bceclub.app.BusinessGiven"
+        android:label="fragment_business_given"
+        tools:layout="@layout/fragment_business_given" />
+</navigation>
