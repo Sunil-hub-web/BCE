@@ -1,7 +1,8 @@
 package com.bceclub.app.Utils;
 
 public class AppUrls {
-    public static final String BASE_URL = "https://www.apollohospitalsevent.com/badmin/";
+//    public static final String BASE_URL = "https://www.apollohospitalsevent.com/badmin/";
+    public static final String BASE_URL = "https://bceindia.club/badmin/";
     public static final String Login = "api.php?method=login";
     public static final String forgetPassword = "api.php?method=forgetpassword";
     public static final String GetProfile = "api.php?method=getProfile";
