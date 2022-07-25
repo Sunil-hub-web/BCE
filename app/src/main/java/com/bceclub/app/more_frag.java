@@ -1,5 +1,6 @@
 package com.bceclub.app;
 
+import android.app.Dialog;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -7,12 +8,17 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.TextView;
 
 import com.bceclub.SessionManager;
 import com.bceclub.app.databinding.FragmentMoreFragBinding;
+import com.google.android.material.button.MaterialButton;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -70,12 +76,43 @@ public class more_frag extends Fragment {
             @Override
             public void onClick(View view) {
 
-                SessionManager sessionManager = new SessionManager(getActivity());
-                sessionManager.logoutUser();
+                Dialog dialog = new Dialog(getActivity());
+                dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                dialog.setCancelable(false);
+                dialog.setContentView(R.layout.logout_logout);
+                WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+                lp.copyFrom(dialog.getWindow().getAttributes());
+                lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+                lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+                lp.gravity = Gravity.CENTER;
+                dialog.getWindow().setAttributes(lp);
+                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+                MaterialButton cancelBtn = dialog.findViewById(R.id.cancelBtn);
+                MaterialButton saveBtn = dialog.findViewById(R.id.saveBtn);
+                TextView showtext = dialog.findViewById(R.id.showtext);
+
+                cancelBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        dialog.dismiss();
+                    }
+                });
+
+                saveBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        SessionManager sessionManager = new SessionManager(getActivity());
+                        sessionManager.logoutUser();
+                    }
+                });
+
+                dialog.show();
 
             }
         });
-
 
         super.onViewCreated(view, savedInstanceState);
     }

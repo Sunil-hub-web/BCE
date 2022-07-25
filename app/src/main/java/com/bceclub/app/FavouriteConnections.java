@@ -71,7 +71,7 @@ public class FavouriteConnections extends Fragment {
                 if(response.isSuccessful()){
                     progressDialog.dismiss();
                     favList.clear();
-                    if(!response.body().getRequestConnection().isEmpty()) {
+                    if(response.body().getRequestConnection() != null) {
 
                         for (FavouriteConnectionModalClass.RequestConnection requestConnection : response.body().getRequestConnection()) {
                             favList.add(requestConnection);

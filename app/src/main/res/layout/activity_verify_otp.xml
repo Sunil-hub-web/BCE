@@ -62,7 +62,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="New Password"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            android:visibility="gone"
+            android:id="@+id/change1">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/newPassword"
@@ -77,7 +79,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:hint="Confirm Password"
-            app:layout_constraintStart_toStartOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/change2"
+            android:visibility="gone">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/confirmPassword"
@@ -93,7 +97,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:backgroundTint="@color/red"
-            android:text="reset password" />
+            android:text="Verify Otp"
+            android:textAllCaps="false"/>
+
     </LinearLayout>
 
 

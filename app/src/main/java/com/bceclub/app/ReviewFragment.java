@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.bceclub.app.API.RetrofitInstance;
 import com.bceclub.app.API.SimpleApi;
@@ -115,10 +116,21 @@ public class ReviewFragment extends Fragment {
                 if (response.isSuccessful()) {
                     progressDialog.dismiss();
 
-                    for (ReviewItem reviewItem : response.body().getSendList()) {
-                        reviewList.add(reviewItem);
-                        mReviewAdapter.updateReview(reviewItem);
+                    if (response.body().getSendList() != null) {
+
+                        for (ReviewItem reviewItem : response.body().getSendList()) {
+                            reviewList.add(reviewItem);
+                            recyclerView.setVisibility(View.VISIBLE);
+                            mReviewAdapter.updateReview(reviewItem);
+                            recyclerView.setHasFixedSize(true);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+                            recyclerView.setAdapter(mReviewAdapter);
+                        }
                     }
+                }else{
+
+                    Toast.makeText(getActivity(), "No Data Is Available", Toast.LENGTH_SHORT).show();
+                    recyclerView.setVisibility(View.GONE);
                 }
             }
 
@@ -128,10 +140,6 @@ public class ReviewFragment extends Fragment {
                 call.cancel();
             }
         });
-
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        recyclerView.setAdapter(mReviewAdapter);
     }
 
     void receivedReviewList() {
@@ -155,10 +163,21 @@ public class ReviewFragment extends Fragment {
                 if (response.isSuccessful()) {
                     progressDialog.dismiss();
                     reviewList.clear();
-                    for (ReviewItem reviewItem : response.body().getReceiveList()) {
-                        reviewList.add(reviewItem);
-                        mReviewAdapter.updateReview(reviewItem);
+
+                    if (response.body().getReceiveList() != null) {
+                        for (ReviewItem reviewItem : response.body().getReceiveList()) {
+                            reviewList.add(reviewItem);
+                            recyclerView.setVisibility(View.VISIBLE);
+                            mReviewAdapter.updateReview(reviewItem);
+                            recyclerView.setHasFixedSize(true);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+                            recyclerView.setAdapter(mReviewAdapter);
+                        }
                     }
+                }else{
+
+                    Toast.makeText(getActivity(), "No Data Is Available", Toast.LENGTH_SHORT).show();
+                    recyclerView.setVisibility(View.GONE);
                 }
             }
 
@@ -168,10 +187,6 @@ public class ReviewFragment extends Fragment {
                 call.cancel();
             }
         });
-
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        recyclerView.setAdapter(mReviewAdapter);
     }
 
     @Override

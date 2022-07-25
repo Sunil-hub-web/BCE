@@ -262,6 +262,7 @@ public class member_frag extends Fragment implements MemberListAdapter.ViewMembe
     void applySearch(String searchString) {
         if (onLocalList) {
             ArrayList<MemberShipListModalClass> searchLocalMembersArrayList = new ArrayList<>();
+            searchLocalMembersArrayList.clear();
             for (MemberShipListModalClass membership : localMembersArrayList) {
                 if (membership.getMembership().getName().toLowerCase(Locale.ROOT).contains(searchString.toLowerCase(Locale.ROOT))) {
                     searchLocalMembersArrayList.add(membership);
@@ -273,6 +274,7 @@ public class member_frag extends Fragment implements MemberListAdapter.ViewMembe
                 localAdapter.updateList(searchLocalMembersArrayList);
         } else {
             ArrayList<MemberShipListModalClass> searchMembersArrayList = new ArrayList<>();
+            searchMembersArrayList.clear();
             for (MemberShipListModalClass membership : membersArrayList) {
                 if (membership.getMembership().getName().toLowerCase(Locale.ROOT).contains(searchString.toLowerCase(Locale.ROOT))) {
                     searchMembersArrayList.add(membership);

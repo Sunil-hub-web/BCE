@@ -12,7 +12,7 @@
     <color name="yellow">#EA942D</color>
     <color name="blue">#332C6A</color>
     <color name="white2">#EAEEF4</color>
-    <color name="lightGreyFont">#727272</color>
-    <color name="darkGreyFont">#5E5E5E</color>
+    <color name="lightGreyFont">#F8A08D</color>
+    <color name="darkGreyFont">#F8A08D</color>
     <color name="purpleFont">#1C1C35</color>
 </resources>

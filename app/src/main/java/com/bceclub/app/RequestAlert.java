@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +62,7 @@ public class RequestAlert extends Fragment implements RequestReceivedAdapter.Acc
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
         receiveRequests();
+        
         binding.requestReceiveRecyclerView.setVisibility(View.VISIBLE);
         binding.sendReceiveRecyclerView.setVisibility(View.GONE);
 
@@ -107,11 +109,26 @@ public class RequestAlert extends Fragment implements RequestReceivedAdapter.Acc
                 if (response.isSuccessful()) {
                     progressDialog.dismiss();
                     resuestReceiveds.clear();
-                    for (ConnectionListModalClass.ResuestReceived resuestReceived : response.body().getResuestReceived()) {
-                        if (!resuestReceiveds.contains(resuestReceived))
-                            resuestReceiveds.add(resuestReceived);
-                        requestReceivedAdapter.updateList(resuestReceived);
+
+                    Log.d("dataresponse",response.body().getResuestReceived().toString());
+
+                    if(response.body().getResuestReceived() !=null){
+
+                        for (ConnectionListModalClass.ResuestReceived resuestReceived : response.body().getResuestReceived()) {
+                            if (!resuestReceiveds.contains(resuestReceived))
+                                resuestReceiveds.add(resuestReceived);
+                            recyclerView.setVisibility(View.VISIBLE);
+                            requestReceivedAdapter.updateList(resuestReceived);
+                            recyclerView.setHasFixedSize(true);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+                            recyclerView.setAdapter(requestReceivedAdapter);
+                        }
+                    }else{
+                        Toast.makeText(getActivity(), "No Data Is Available", Toast.LENGTH_SHORT).show();
+
+                        recyclerView.setVisibility(View.GONE);
                     }
+                    
                 }
             }
 
@@ -121,10 +138,6 @@ public class RequestAlert extends Fragment implements RequestReceivedAdapter.Acc
                 call.cancel();
             }
         });
-
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        recyclerView.setAdapter(requestReceivedAdapter);
 
     }
 
@@ -146,11 +159,26 @@ public class RequestAlert extends Fragment implements RequestReceivedAdapter.Acc
                 if (response.isSuccessful()) {
                     progressDialog.dismiss();
                     requestSends.clear();
-                    for (ConnectionListModalClass.ResuestSend requestSent : response.body().getResuestSend()) {
-                        if (!requestSends.contains(requestSent))
-                            requestSends.add(requestSent);
-                        requestSentAdapter.updateList(requestSent);
+
+                    if (response.body().getResuestSend() != null) {
+
+                        for (ConnectionListModalClass.ResuestSend requestSent : response.body().getResuestSend()) {
+
+                            recyclerView.setVisibility(View.VISIBLE);
+                            
+                            if (!requestSends.contains(requestSent))
+                                requestSends.add(requestSent);
+                            requestSentAdapter.updateList(requestSent);
+
+                            recyclerView.setHasFixedSize(true);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+                            recyclerView.setAdapter(requestSentAdapter);
+                        }
                     }
+                }else{
+
+                    Toast.makeText(getActivity(), "No Data Is Available", Toast.LENGTH_SHORT).show();
+                    recyclerView.setVisibility(View.GONE);
                 }
             }
 
@@ -160,10 +188,6 @@ public class RequestAlert extends Fragment implements RequestReceivedAdapter.Acc
                 call.cancel();
             }
         });
-
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        recyclerView.setAdapter(requestSentAdapter);
 
     }
 

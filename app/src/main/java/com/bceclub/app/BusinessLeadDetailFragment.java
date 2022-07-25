@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.bceclub.app.API.RetrofitInstance;
 import com.bceclub.app.API.SimpleApi;
@@ -222,10 +223,22 @@ public class BusinessLeadDetailFragment extends Fragment {
                 if (response.isSuccessful()){
 
                     progressDialog.dismiss();
-                    for(BusinessLeadDetailModalClass.Send businessReceiveList : response.body().getSendList()){
 
-                        businessLeadSend.add(businessReceiveList);
-                        sendAdapter.updateBusinessLead(businessReceiveList);
+                    if(response.body().getSendList() != null){
+
+                        for(BusinessLeadDetailModalClass.Send businessReceiveList : response.body().getSendList()){
+
+                            businessLeadSend.add(businessReceiveList);
+                            binding.businessLeadSend.setVisibility(View.VISIBLE);
+                            sendAdapter.updateBusinessLead(businessReceiveList);
+                            binding.businessLeadSend.setHasFixedSize(true);
+                            binding.businessLeadSend.setLayoutManager(new LinearLayoutManager(requireContext()));
+                            binding.businessLeadSend.setAdapter(sendAdapter);
+                        }
+                    }else{
+                        binding.businessLeadSend.setVisibility(View.GONE);
+                        Toast.makeText(getActivity(), "No Data Is Available", Toast.LENGTH_SHORT).show();
+
                     }
                 }
             }
@@ -237,10 +250,6 @@ public class BusinessLeadDetailFragment extends Fragment {
                 progressDialog.dismiss();
             }
         });
-
-        binding.businessLeadSend.setHasFixedSize(true);
-        binding.businessLeadSend.setLayoutManager(new LinearLayoutManager(requireContext()));
-        binding.businessLeadSend.setAdapter(sendAdapter);
 
     }
 
@@ -276,11 +285,24 @@ public class BusinessLeadDetailFragment extends Fragment {
 
                     progressDialog.dismiss();
                     businessLeadReceive.clear();
-                    for(BusinessLeadDetailModalClass.Receive businessReceiveList : response.body().getReceiveList()){
 
-                        businessLeadReceive.add(businessReceiveList);
-                        mAdapter.updateBusinessLead(businessReceiveList);
+                    if(response.body().getReceiveList() != null){
+
+                        for(BusinessLeadDetailModalClass.Receive businessReceiveList : response.body().getReceiveList()){
+
+                            businessLeadReceive.add(businessReceiveList);
+                            mAdapter.updateBusinessLead(businessReceiveList);
+                            recyclerView.setVisibility(View.VISIBLE);
+                            recyclerView.setHasFixedSize(true);
+                            recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+                            recyclerView.setAdapter(mAdapter);
+                        }
+                    }else{
+
+                        Toast.makeText(getActivity(), "No Data Is Available", Toast.LENGTH_SHORT).show();
+                        recyclerView.setVisibility(View.GONE);
                     }
+
                 }
             }
 
@@ -291,9 +313,5 @@ public class BusinessLeadDetailFragment extends Fragment {
                 progressDialog.dismiss();
             }
         });
-
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
-        recyclerView.setAdapter(mAdapter);
     }
 }

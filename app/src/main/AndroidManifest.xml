@@ -22,7 +22,9 @@
         android:usesCleartextTraffic="true">
         <activity
             android:name="com.bceclub.app.verifyOTP"
-            android:exported="false" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name="com.bceclub.app.ForgotPassword"
             android:exported="true" />
