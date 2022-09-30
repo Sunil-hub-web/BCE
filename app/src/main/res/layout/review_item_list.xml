@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Date"
+            android:textColor="@color/blue"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/reviewDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="03-04-2022" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Review Detail"
+            android:textColor="@color/blue"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:text="Star" />
+
+
+            <RatingBar
+                android:id="@+id/reviewRating"
+                style="@style/Widget.AppCompat.RatingBar.Small"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical"
+                android:numStars="5"
+                android:progressTint="#FFD700"
+                android:rating="5" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/reviewRemarks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remarks: Dynamic" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Business Lead Detail"
+            android:textColor="@color/blue"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/reveiveFromName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Smruthi Ranjan" />
+
+        <TextView
+            android:id="@+id/receiveFromCompany"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HDFC ERGP &amp; Chola Ms" />
+
+        <TextView
+            android:id="@+id/receiveFromClub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BCE Bhubaneswar - Insurance" />
+
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

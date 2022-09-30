@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.33645833333333336" />
+        <entry key="..\:/Newfolder/BCE/app/src/main/res/layout/fragment_home_frag.xml" value="0.33" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/activity_forgot_password.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/activity_verify_otp.xml" value="0.20102564102564102" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/business_lead_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/business_lead_send_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/business_send_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/demo.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/fragment_add_guest.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/fragment_business_given.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/fragment_business_lead_detail.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/fragment_home_frag.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/fragment_member_details.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/fragment_member_frag.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/fragment_more_frag.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/fragment_profile_frag.xml" value="0.25" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/fragment_request_alert.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/help_desk_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/logout_logout.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/member_ask_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/member_item.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/request_recieved.xml" value="0.20416666666666666" />
+        <entry key="app/src/main/res/drawable/ic_back.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.2085" />
+        <entry key="app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.2615" />
+        <entry key="app/src/main/res/drawable/ic_fav_connection.xml" value="0.151" />
+        <entry key="app/src/main/res/drawable/navigation_bar.xml" value="0.186" />
+        <entry key="app/src/main/res/drawable/round_corner.xml" value="0.2085" />
+        <entry key="app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.18" />
+        <entry key="app/src/main/res/layout/activity_verify_otp.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/add_help.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/add_help_dialog_box.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/business_lead_item.xml" value="0.45290745290745293" />
+        <entry key="app/src/main/res/layout/business_lead_send_item.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/business_send_item.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/custom_home_action_bar.xml" value="0.6055625790139064" />
+        <entry key="app/src/main/res/layout/dropdown_menu_popup_item.xml" value="0.15070921985815602" />
+        <entry key="app/src/main/res/layout/favourite_connection_item.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_add_guest.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/fragment_ask_help.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/fragment_business_given.xml" value="0.547378104875805" />
+        <entry key="app/src/main/res/layout/fragment_business_lead_detail.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_favourite_connections.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/fragment_guest_list.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_help_desk.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_home_frag.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_member_ask.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/fragment_member_details.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_member_frag.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/fragment_more_frag.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_payment_transaction.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/fragment_profile_frag.xml" value="0.21899153478100847" />
+        <entry key="app/src/main/res/layout/fragment_request_alert.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_review.xml" value="0.2741912841796875" />
+        <entry key="app/src/main/res/layout/fragment_tender_list.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/guest_list_item.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/help_desk_item.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/member_ask_item.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/member_item.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/new_business_lead_dialog_box.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/new_review_dialog_box.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/request_recieved.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/request_sent.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/review_item_list.xml" value="0.67" />
+        <entry key="app/src/main/res/layout/submit_ask_dialog_box.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/thanks_note_dialog_box.xml" value="0.33" />
+        <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.3098958333333333" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

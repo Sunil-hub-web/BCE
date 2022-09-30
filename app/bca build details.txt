@@ -1,0 +1,2 @@
+alias:: bceindia
+password:: yourpasswordss

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/dateLayout"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="10dp"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal"
+            android:padding="4dp"
+            android:background="@color/white2"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/calenderImg"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/date"
+                app:layout_constraintBottom_toBottomOf="@id/date"
+                android:src="@drawable/ic_calendar"
+                android:layout_width="14dp"
+                android:layout_height="0dp"/>
+
+            <TextView
+                android:id="@+id/date"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginStart="4dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@id/calenderImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:textColor="@color/blue"
+                android:text="03-04-2022"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <ImageView
+            android:id="@+id/startImg"
+            app:layout_constraintTop_toTopOf="@id/rating"
+            app:layout_constraintBottom_toBottomOf="@id/rating"
+            app:layout_constraintEnd_toStartOf="@id/rating"
+            android:layout_marginEnd="2dp"
+            android:src="@drawable/ic_star_yellow"
+            android:layout_width="14dp"
+            android:layout_height="11dp"/>
+
+        <TextView
+            android:id="@+id/rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5.0"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textSize="11sp"
+            android:textColor="@color/red"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="4dp"
+            />
+
+
+        <LinearLayout
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dateLayout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:layout_marginTop="14dp"
+            android:layout_marginStart="10dp"
+            android:orientation="vertical"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:text="He/She will contact you"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Business Lead Detail"
+                android:textSize="11sp"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/purpleFont"
+                android:textStyle="bold" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/avatarImg"
+                    android:layout_width="@dimen/fifteen"
+                    android:layout_height="@dimen/fifteen"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/ic_briefcase"
+                    app:layout_constraintBottom_toBottomOf="@id/profileName"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@id/profileName" />
+
+
+                <TextView
+                    android:id="@+id/profileName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:text="Smruthi Ranjan"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toEndOf="@id/avatarImg"
+                    />
+
+                <TextView
+                    android:id="@+id/phone"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="4dp"
+                    android:text="+91 7008 123 456"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/mobileImg"
+                    app:layout_constraintTop_toBottomOf="@id/profileName"
+                    />
+
+                <ImageView
+                    android:id="@+id/imageCalling"
+                    android:layout_width="@dimen/forty"
+                    android:layout_height="@dimen/twenty"
+                    android:src="@drawable/ic_call"
+                    android:onClick="imageCalling"
+                    app:layout_constraintBottom_toBottomOf="@id/phone"
+                    app:layout_constraintStart_toEndOf="@id/phone"
+                    app:layout_constraintTop_toTopOf="@id/phone" />
+
+                <ImageView
+                    android:id="@+id/mobileImg"
+                    android:layout_width="@dimen/fifteen"
+                    android:layout_height="@dimen/fifteen"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/ic_mobile"
+                    app:layout_constraintBottom_toBottomOf="@id/phone"
+                    app:layout_constraintStart_toStartOf="@id/avatarImg"
+                    app:layout_constraintTop_toTopOf="@id/phone" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/remark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="11sp"
+                android:layout_marginTop="4dp"
+                android:text="Remarks: He need his website maintainance, development, &amp; promotion"/>
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Business lead given to"
+                android:textSize="11sp"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/purpleFont"
+                android:textStyle="bold" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profilePicMember"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_margin="12dp"
+                    android:src="@drawable/glen"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@+id/profilePicMember"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/profilePicMember"
+                    app:layout_constraintTop_toTopOf="@id/profilePicMember">
+
+                    <TextView
+                        android:id="@+id/memberName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Glenn Maxwell"
+                        android:textSize="11sp"
+                        android:textColor="@color/blue"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/memberClub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="BCE Bhubaneswar"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/memberDesig"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:text="Sports Kit Provider"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+        </LinearLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+</androidx.cardview.widget.CardView>

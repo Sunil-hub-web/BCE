@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "115490416245",
+    "project_id": "bceclube",
+    "storage_bucket": "bceclube.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:115490416245:android:8030ae527af554f52efa3c",
+        "android_client_info": {
+          "package_name": "com.bceclub.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "115490416245-bdkmcvpu1d2bg5dvh72v23b97rja49vo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCVOAD00WxSfNX16PTHu7520L5bnIX-ihs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "115490416245-bdkmcvpu1d2bg5dvh72v23b97rja49vo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
