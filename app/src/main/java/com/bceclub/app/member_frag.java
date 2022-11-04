@@ -133,6 +133,9 @@ public class member_frag extends Fragment implements MemberListAdapter.ViewMembe
     }
 
     void localMemberList() {
+
+        localMembersArrayList.clear();
+
         onLocalList = true;
         RecyclerView recyclerView = binding.memberListRecyclerView;
         ProgressDialog progressDialog = new ProgressDialog(getContext());
@@ -148,6 +151,7 @@ public class member_frag extends Fragment implements MemberListAdapter.ViewMembe
         call.enqueue(new Callback<MembersList>() {
             @Override
             public void onResponse(Call<MembersList> call, Response<MembersList> response) {
+
                 if (response.isSuccessful()) {
                     progressDialog.dismiss();
                     for (Membership member : response.body().getMembershipList()) {
@@ -184,6 +188,9 @@ public class member_frag extends Fragment implements MemberListAdapter.ViewMembe
     }
 
     void globalMemberList() {
+
+        membersArrayList.clear();
+
         onLocalList = false;
         RecyclerView recyclerView = binding.memberListRecyclerView;
         ProgressDialog progressDialog = new ProgressDialog(getContext());
@@ -198,6 +205,7 @@ public class member_frag extends Fragment implements MemberListAdapter.ViewMembe
         call.enqueue(new Callback<MembersList>() {
             @Override
             public void onResponse(Call<MembersList> call, Response<MembersList> response) {
+
                 if (response.isSuccessful()) {
                     progressDialog.dismiss();
                     for (Membership member : response.body().getMembershipList()) {
