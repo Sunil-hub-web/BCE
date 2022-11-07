@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
@@ -156,6 +157,11 @@ public class home_frag extends Fragment {
                 openDialog_Logout();
             }
         });
+
+        binding.connectionLayout1.setOnClickListener(view1 ->
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new OneToOne_frg()).addToBackStack(null).commit()
+                //Toast.makeText(getActivity(), "Work in Progress", Toast.LENGTH_SHORT).show()
+        );
 
 
         super.onViewCreated(view, savedInstanceState);

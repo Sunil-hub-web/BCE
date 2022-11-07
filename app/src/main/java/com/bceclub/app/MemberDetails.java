@@ -3,7 +3,10 @@ package com.bceclub.app;
 import static com.bceclub.app.MainActivity.member_id;
 
 import android.app.AlertDialog;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.content.Context;
 import android.os.Bundle;
 
@@ -11,15 +14,22 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.bceclub.SessionManager;
 import com.bceclub.app.API.RetrofitInstance;
 import com.bceclub.app.API.SimpleApi;
 import com.bceclub.app.Models.DialogBoxModalClass;
@@ -27,10 +37,15 @@ import com.bceclub.app.Models.ProfileModalClass;
 import com.bceclub.app.Models.SendReviewModalClass;
 import com.bceclub.app.databinding.FragmentBusinessLeadDetailBinding;
 import com.bceclub.app.databinding.FragmentMemberDetailsBinding;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.textfield.TextInputEditText;
 import com.squareup.picasso.Picasso;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 import retrofit2.Call;
@@ -75,6 +90,10 @@ public class MemberDetails extends Fragment {
     Boolean isAllThankNoteFieldChecked = false;
     Boolean isAllReviewFieldsChecked = false;
 
+    int year, month, day, hour, minute;
+    String value, date, time;
+    DatePickerDialog.OnDateSetListener setListener;
+
     public MemberDetails() {
         // Required empty public constructor
     }
@@ -102,7 +121,11 @@ public class MemberDetails extends Fragment {
         binding.connectionRequestLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                simpleApi = RetrofitInstance.getClient().create(SimpleApi.class);
+
+                onetoone();
+
+
+                /*simpleApi = RetrofitInstance.getClient().create(SimpleApi.class);
                 Map<String, String> params = new HashMap<>();
                 params.put("member_id", member_ID);
                 params.put("user_id", user_id);
@@ -121,7 +144,7 @@ public class MemberDetails extends Fragment {
                         throw new RuntimeException("Test Crash for BceClube"); // Force a crash
                     }
                 });
-
+*/
             }
         });
 
@@ -412,6 +435,168 @@ public class MemberDetails extends Fragment {
     private void closeKeyboard() {
         final InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(getView().getWindowToken(), 0);
+    }
+
+    public void onetoone(){
+
+        Dialog dialog = new Dialog(getActivity());
+        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog.setCancelable(false);
+        dialog.setContentView(R.layout.onetooneconn);
+        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
+        lp.copyFrom(dialog.getWindow().getAttributes());
+        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
+        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
+        lp.gravity = Gravity.CENTER;
+        dialog.getWindow().setAttributes(lp);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+
+        EditText date_d = dialog.findViewById(R.id.date);
+        EditText time_t = dialog.findViewById(R.id.time);
+        EditText remarkes = dialog.findViewById(R.id.remarkes);
+        Button btn_sendonetonne = dialog.findViewById(R.id.btn_sendonetonne);
+
+        Calendar calendar = Calendar.getInstance();
+        year = calendar.get(Calendar.YEAR);
+        month = calendar.get(Calendar.MONTH);
+        day = calendar.get(Calendar.DAY_OF_MONTH);
+        hour = calendar.get(Calendar.HOUR_OF_DAY);
+        minute = calendar.get(Calendar.MINUTE);
+
+        //binding.datatime.setEnabled(false);
+
+        date = new SimpleDateFormat("dd/mm/yyyy", Locale.getDefault()).format(new Date());
+        time = new SimpleDateFormat("hh:mm aa", Locale.getDefault()).format(new Date());
+
+       /* setListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                month = month+1;
+                String date = year+"/"+month+"/"+day;
+                //String date = year+"-"+month+"-"+day;
+                date_d.setText(date);
+
+            }
+        };*/
+
+        date_d.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                DatePickerDialog datePickerDialog = new DatePickerDialog(
+                        getContext(), new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+                        month = month + 1;
+                        String date = dayOfMonth + "-" + month + "-" + year;
+                        //String date = year+"-"+month+"-"+day;
+                        date_d.setText(date);
+                    }
+                }, year, month, day);
+
+                //display previous selected date
+                // datePickerDialog.updateDate(year, month, day);
+
+                //disiable past date
+                //datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+
+                datePickerDialog.show();
+
+            }
+        });
+
+        time_t.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                TimePickerDialog timePickerDialog = new TimePickerDialog(getContext(), new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+
+                        int str_hour = hourOfDay;
+                        int str_minute = minute;
+
+                        Calendar calendar1 = Calendar.getInstance();
+
+                        String sDate = date;
+
+                        String[] string = sDate.split("/");
+
+                        int sDay = Integer.parseInt(string[0]);
+
+                        calendar1.set(Calendar.DAY_OF_MONTH, sDay);
+                        calendar1.set(Calendar.HOUR_OF_DAY, str_hour);
+                        calendar1.set(Calendar.MINUTE, str_minute);
+
+                        time_t.setText(android.text.format.DateFormat.format("hh:mm aa", calendar1));
+
+                        if (calendar1.getTimeInMillis() == Calendar.getInstance().getTimeInMillis()) {
+
+                            Toast.makeText(getContext(), "Current Time selected", Toast.LENGTH_SHORT).show();
+
+                        } else if (calendar1.getTimeInMillis() > Calendar.getInstance().getTimeInMillis()) {
+
+                            Toast.makeText(getContext(), "Future time selected", Toast.LENGTH_SHORT).show();
+
+                        } else {
+
+                            Toast.makeText(getContext(), "Past time selected", Toast.LENGTH_LONG).show();
+                        }
+
+
+                    }
+                }, hour, minute, false);
+
+
+                timePickerDialog.show();
+            }
+        });
+
+        btn_sendonetonne.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                dialog.dismiss();
+            }
+        });
+
+
+        dialog.show();
+
+
+    }
+
+    public void showCalender1(){
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                getActivity(), new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+
+
+                month = month+1;
+
+                String fmonth=""+month;
+                String fDate=""+dayOfMonth;
+
+                if(month<10){
+                    fmonth ="0"+month;
+                }
+                if (dayOfMonth<10){
+                    fDate="0"+dayOfMonth;
+                }
+
+                String date = year+"-"+fmonth+"-"+fDate;
+                //String date = year+"-"+month+"-"+day;
+               // binding.datatime.setText(date);
+
+            }
+        },year,month,day);
+
+        datePickerDialog.show();
     }
 
 

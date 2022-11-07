@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvHeading"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/blue"
+            android:fontFamily="serif"
+            android:gravity="center"
+            android:text="One-To-One"
+            android:textColor="@color/white"
+            android:textSize="@dimen/twenty"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Date : "
+            app:layout_constraintStart_toStartOf="parent"
+           >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:drawableRight="@drawable/calendar_r"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:imeOptions="actionNext"
+                android:textIsSelectable="false"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Time : "
+            app:endIconTint="@color/blue"
+            app:layout_constraintStart_toStartOf="parent"
+            >
+
+            <EditText
+                android:id="@+id/time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:drawableRight="@drawable/clock"
+                android:cursorVisible="false"
+                android:focusable="false"
+                android:imeOptions="actionNext"
+                android:textIsSelectable="false"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Remarks/Requirement"
+            app:endIconTint="@color/blue"
+            app:layout_constraintStart_toStartOf="parent"
+            >
+
+            <EditText
+                android:id="@+id/remarkes"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/hundred"
+                android:gravity="start"
+                android:paddingLeft="20dp"
+                android:paddingTop="@dimen/ten"
+                android:textColor="#25297A"
+                android:textSize="18dp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/fifty"
+            android:layout_marginRight="@dimen/fifty"
+            android:layout_marginBottom="@dimen/ten"
+            android:backgroundTint="@color/red"
+            android:text="Submit"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linear_layout" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
