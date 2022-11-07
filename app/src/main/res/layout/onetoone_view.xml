@@ -61,6 +61,7 @@
                 </TextView>
 
                 <TextView
+                    android:id="@+id/Created_On"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -94,6 +95,7 @@
                 </TextView>
 
                 <TextView
+                    android:id="@+id/Meeting_On"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -127,6 +129,7 @@
                 </TextView>
 
                 <TextView
+                    android:id="@+id/Remark"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
@@ -184,6 +187,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/clientName"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Debasis Patnaik"
@@ -200,6 +204,7 @@
                         android:weightSum="2">
 
                         <TextView
+                            android:id="@+id/serviceProvide"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.2"
@@ -231,6 +236,7 @@
                         android:weightSum="2">
 
                         <TextView
+                            android:id="@+id/locationName"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_weight="1.2"
@@ -276,6 +282,7 @@
             </TextView>
 
             <TextView
+                android:id="@+id/locationDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/text1"
@@ -332,7 +339,7 @@
                 android:weightSum="2">
 
                 <Button
-                    android:id="@+id/edit"
+                    android:id="@+id/btn_edit"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="@dimen/fifteen"
@@ -344,7 +351,7 @@
                     app:layout_constraintStart_toStartOf="parent" />
 
                 <Button
-                    android:id="@+id/submit"
+                    android:id="@+id/btn_submit"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
