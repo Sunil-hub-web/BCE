@@ -16,6 +16,7 @@ import com.bceclub.app.Models.LoginModalClass;
 import com.bceclub.app.Models.ProfileModalClass;
 import com.bceclub.app.Models.ReviewListModalClass;
 import com.bceclub.app.Models.TenderListModalClass;
+import com.bceclub.app.Models.onetonedet_model;
 import com.bceclub.app.Utils.AppUrls;
 
 import java.util.Map;
@@ -145,6 +146,10 @@ public interface SimpleApi {
     @POST(AppUrls.leadstatusupdate)
     @FormUrlEncoded
     Call<DialogBoxModalClass> leadstatusupdate(@FieldMap Map<String,String> params);
+
+    @POST(AppUrls.onetoonelist)
+    @FormUrlEncoded
+    Call<onetonedet_model> onetoonelist(@FieldMap Map<String,String> params);
 
 
 }

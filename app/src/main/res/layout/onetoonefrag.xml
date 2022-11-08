@@ -45,7 +45,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/red"
-                android:text="Local Search"
+                android:text="Receive List"
                 app:layout_constraintEnd_toStartOf="@+id/guideline3"
                 app:layout_constraintStart_toStartOf="parent" />
 
@@ -57,7 +57,7 @@
                 android:layout_marginEnd="@dimen/fifteen"
                 android:layout_weight="1"
                 android:backgroundTint="@color/lightGreyFont"
-                android:text="global search"
+                android:text="Send List"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0" />
 
@@ -67,9 +67,9 @@
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_above="@id/btn_sendonetonne"
             android:layout_below="@+id/lin_button"
-            android:layout_marginTop="@dimen/ten"
-            android:layout_above="@id/btn_sendonetonne">
+            android:layout_marginTop="@dimen/ten">
 
         </androidx.recyclerview.widget.RecyclerView>
 

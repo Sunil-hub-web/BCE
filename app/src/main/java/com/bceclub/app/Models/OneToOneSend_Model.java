@@ -1,11 +1,11 @@
 package com.bceclub.app.Models;
 
-public class OneToOne_Model {
+public class OneToOneSend_Model {
 
     String Created_On,Meeting_On,Remark,clientName,serviceProvide,locationName,locationDetails;
 
-    public OneToOne_Model(String created_On, String meeting_On, String remark, String clientName,
-                          String serviceProvide, String locationName, String locationDetails) {
+    public OneToOneSend_Model(String created_On, String meeting_On, String remark, String clientName,
+                              String serviceProvide, String locationName, String locationDetails) {
         Created_On = created_On;
         Meeting_On = meeting_On;
         Remark = remark;

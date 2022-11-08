@@ -12,7 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bceclub.app.Models.OneToOne_Model;
+import com.bceclub.app.Models.OneToOneSend_Model;
 import com.bceclub.app.R;
 
 import java.util.ArrayList;
@@ -20,9 +20,9 @@ import java.util.ArrayList;
 public class OneToOneAdapter extends RecyclerView.Adapter<OneToOneAdapter.ViewHolder> {
 
     Context context;
-    ArrayList<OneToOne_Model> oneToOnemodels;
+    ArrayList<OneToOneSend_Model> oneToOnemodels;
 
-    OneToOneAdapter(Context context,ArrayList<OneToOne_Model> oneToOne_models){
+    OneToOneAdapter(Context context,ArrayList<OneToOneSend_Model> oneToOne_models){
 
         this.context = context;
         this.oneToOnemodels = oneToOne_models;
@@ -64,7 +64,7 @@ public class OneToOneAdapter extends RecyclerView.Adapter<OneToOneAdapter.ViewHo
             btn_edit = itemView.findViewById(R.id.btn_edit);
             btn_submit = itemView.findViewById(R.id.btn_submit);
 
-            String[] itemNamesbank = context.getResources().getStringArray(R.array.selectone1);
+            String[] itemNamesbank = context.getResources().getStringArray(R.array.ReceiveList);
             ArrayAdapter<String> bankaccountadapter = new ArrayAdapter<String>(context.getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, itemNamesbank);
             bankaccountadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             BusinessStatus.setAdapter(bankaccountadapter);
