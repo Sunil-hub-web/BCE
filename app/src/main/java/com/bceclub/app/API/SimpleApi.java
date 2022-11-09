@@ -1,5 +1,6 @@
 package com.bceclub.app.API;
 
+import com.bceclub.app.Adapters.StatusDetails_Model;
 import com.bceclub.app.Models.BusinessGivenModalClass;
 import com.bceclub.app.Models.BusinessLeadDetailModalClass;
 import com.bceclub.app.Models.ConnectionListModalClass;
@@ -150,6 +151,14 @@ public interface SimpleApi {
     @POST(AppUrls.onetoonelist)
     @FormUrlEncoded
     Call<onetonedet_model> onetoonelist(@FieldMap Map<String,String> params);
+
+    @POST(AppUrls.update_oto_sts)
+    @FormUrlEncoded
+    Call<StatusDetails_Model> update_oto_sts(@FieldMap Map<String,String> params);
+
+    @POST(AppUrls.send_onetoone)
+    @FormUrlEncoded
+    Call<StatusDetails_Model> send_onetoone(@FieldMap Map<String,String> params);
 
 
 }

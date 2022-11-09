@@ -32,9 +32,11 @@ import android.widget.Toast;
 import com.bceclub.SessionManager;
 import com.bceclub.app.API.RetrofitInstance;
 import com.bceclub.app.API.SimpleApi;
+import com.bceclub.app.Adapters.StatusDetails_Model;
 import com.bceclub.app.Models.DialogBoxModalClass;
 import com.bceclub.app.Models.ProfileModalClass;
 import com.bceclub.app.Models.SendReviewModalClass;
+import com.bceclub.app.Models.onetonedet_model;
 import com.bceclub.app.databinding.FragmentBusinessLeadDetailBinding;
 import com.bceclub.app.databinding.FragmentMemberDetailsBinding;
 import com.google.android.material.button.MaterialButton;
@@ -76,6 +78,7 @@ public class MemberDetails extends Fragment {
     TextInputEditText remarksReview;
     RatingBar reviewRating;
     TextView ratingText;
+    Button btn_sendonetonne;
 
     String user_id;
     String member_ID;
@@ -455,7 +458,7 @@ public class MemberDetails extends Fragment {
         EditText date_d = dialog.findViewById(R.id.date);
         EditText time_t = dialog.findViewById(R.id.time);
         EditText remarkes = dialog.findViewById(R.id.remarkes);
-        Button btn_sendonetonne = dialog.findViewById(R.id.btn_sendonetonne);
+        Button btn_submit = dialog.findViewById(R.id.btn_submit);
 
         Calendar calendar = Calendar.getInstance();
         year = calendar.get(Calendar.YEAR);
@@ -555,11 +558,29 @@ public class MemberDetails extends Fragment {
             }
         });
 
-        btn_sendonetonne.setOnClickListener(new View.OnClickListener() {
+        btn_submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                dialog.dismiss();
+                if(date_d.getText().toString().trim().equals("")){
+
+                    Toast.makeText(getActivity(), "Select Your Date", Toast.LENGTH_SHORT).show();
+                }else if(time_t.getText().toString().trim().equals("")){
+
+                    Toast.makeText(getActivity(), "Select Your Time", Toast.LENGTH_SHORT).show();
+                }else if(remarkes.getText().toString().trim().equals("")){
+
+                    Toast.makeText(getActivity(), "Please Fill Remark", Toast.LENGTH_SHORT).show();
+                }else{
+
+                    String str_date = date_d.getText().toString().trim();
+                    String str_time = time_t.getText().toString().trim();
+                    String str_remarke = remarkes.getText().toString().trim();
+
+                    sendYourOneToOneConnection(user_id,member_ID,str_date,str_time,str_remarke);
+
+                    dialog.dismiss();
+                }
             }
         });
 
@@ -599,6 +620,50 @@ public class MemberDetails extends Fragment {
         datePickerDialog.show();
     }
 
+    public void sendYourOneToOneConnection(String user_id,String oto_to_urid,String oto_dt,
+                                           String oto_time,String oto_remark){
+
+        ProgressDialog progressDialog = new ProgressDialog(getActivity());
+        progressDialog.setMessage("Retrive Guest List Please Wait....");
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.show();
+
+        simpleApi = RetrofitInstance.getClient().create(SimpleApi.class);
+        Map<String, String> params = new HashMap<>();
+        params.put("user_id", user_id);
+        params.put("oto_to_urid", oto_to_urid);
+        params.put("oto_dt", oto_dt);
+        params.put("oto_time", oto_time);
+        params.put("oto_remark", oto_remark);
+
+        Call<StatusDetails_Model> call_SendOnetoOne = simpleApi.send_onetoone(params);
+
+        call_SendOnetoOne.enqueue(new Callback<StatusDetails_Model>() {
+            @Override
+            public void onResponse(Call<StatusDetails_Model> call, Response<StatusDetails_Model> response) {
+
+                progressDialog.dismiss();
+
+                if(response.body() != null){
+
+                    Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                }else{
+
+                    Toast.makeText(getActivity(), response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<StatusDetails_Model> call, Throwable t) {
+
+                progressDialog.dismiss();
+
+                Toast.makeText(getActivity(), "error"+t, Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -619,4 +684,6 @@ public class MemberDetails extends Fragment {
         });
         return binding.getRoot();
     }
+
+
 }

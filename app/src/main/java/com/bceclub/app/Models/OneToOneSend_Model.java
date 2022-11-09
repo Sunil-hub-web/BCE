@@ -1,73 +1,155 @@
 package com.bceclub.app.Models;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
+
 public class OneToOneSend_Model {
 
-    String Created_On,Meeting_On,Remark,clientName,serviceProvide,locationName,locationDetails;
+    @SerializedName("oto_id")
+    @Expose
+    private String otoId;
+    @SerializedName("created_on")
+    @Expose
+    private String createdOn;
+    @SerializedName("meeting_on")
+    @Expose
+    private String meetingOn;
+    @SerializedName("remark")
+    @Expose
+    private String remark;
+    @SerializedName("given_to")
+    @Expose
+    private GivenTo givenTo;
+    @SerializedName("status")
+    @Expose
+    private String status;
 
-    public OneToOneSend_Model(String created_On, String meeting_On, String remark, String clientName,
-                              String serviceProvide, String locationName, String locationDetails) {
-        Created_On = created_On;
-        Meeting_On = meeting_On;
-        Remark = remark;
-        this.clientName = clientName;
-        this.serviceProvide = serviceProvide;
-        this.locationName = locationName;
-        this.locationDetails = locationDetails;
+    public String getOtoId() {
+        return otoId;
     }
 
-    public String getCreated_On() {
-        return Created_On;
+    public void setOtoId(String otoId) {
+        this.otoId = otoId;
     }
 
-    public void setCreated_On(String created_On) {
-        Created_On = created_On;
+    public String getCreatedOn() {
+        return createdOn;
     }
 
-    public String getMeeting_On() {
-        return Meeting_On;
+    public void setCreatedOn(String createdOn) {
+        this.createdOn = createdOn;
     }
 
-    public void setMeeting_On(String meeting_On) {
-        Meeting_On = meeting_On;
+    public String getMeetingOn() {
+        return meetingOn;
+    }
+
+    public void setMeetingOn(String meetingOn) {
+        this.meetingOn = meetingOn;
     }
 
     public String getRemark() {
-        return Remark;
+        return remark;
     }
 
     public void setRemark(String remark) {
-        Remark = remark;
+        this.remark = remark;
     }
 
-    public String getClientName() {
-        return clientName;
+    public GivenTo getGivenTo() {
+        return givenTo;
     }
 
-    public void setClientName(String clientName) {
-        this.clientName = clientName;
+    public void setGivenTo(GivenTo givenTo) {
+        this.givenTo = givenTo;
     }
 
-    public String getServiceProvide() {
-        return serviceProvide;
+    public String getStatus() {
+        return status;
     }
 
-    public void setServiceProvide(String serviceProvide) {
-        this.serviceProvide = serviceProvide;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
-    public String getLocationName() {
-        return locationName;
-    }
+    public class GivenTo{
 
-    public void setLocationName(String locationName) {
-        this.locationName = locationName;
-    }
+        @SerializedName("name")
+        @Expose
+        private String name;
+        @SerializedName("company")
+        @Expose
+        private String company;
+        @SerializedName("club")
+        @Expose
+        private String club;
+        @SerializedName("category")
+        @Expose
+        private String category;
+        @SerializedName("image")
+        @Expose
+        private String image;
+        @SerializedName("dist_name")
+        @Expose
+        private String distName;
+        @SerializedName("cit_name")
+        @Expose
+        private String citName;
 
-    public String getLocationDetails() {
-        return locationDetails;
-    }
+        public String getName() {
+            return name;
+        }
 
-    public void setLocationDetails(String locationDetails) {
-        this.locationDetails = locationDetails;
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getCompany() {
+            return company;
+        }
+
+        public void setCompany(String company) {
+            this.company = company;
+        }
+
+        public String getClub() {
+            return club;
+        }
+
+        public void setClub(String club) {
+            this.club = club;
+        }
+
+        public String getCategory() {
+            return category;
+        }
+
+        public void setCategory(String category) {
+            this.category = category;
+        }
+
+        public String getImage() {
+            return image;
+        }
+
+        public void setImage(String image) {
+            this.image = image;
+        }
+
+        public String getDistName() {
+            return distName;
+        }
+
+        public void setDistName(String distName) {
+            this.distName = distName;
+        }
+
+        public String getCitName() {
+            return citName;
+        }
+
+        public void setCitName(String citName) {
+            this.citName = citName;
+        }
     }
 }
