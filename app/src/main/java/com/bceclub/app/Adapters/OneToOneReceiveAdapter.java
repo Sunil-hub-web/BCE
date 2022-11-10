@@ -88,6 +88,12 @@ public class OneToOneReceiveAdapter extends RecyclerView.Adapter<OneToOneReceive
             bankaccountadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             holder.BusinessStatus.setAdapter(bankaccountadapter);
 
+        }else if(statues.equals("Completed")){
+
+            holder.BusinessStatus.setText(statues);
+            holder.BusinessStatus.setFocusable(false);
+            holder.BusinessStatus.setEnabled(false);
+
         }else{
 
             holder.BusinessStatus.setText(statues);
