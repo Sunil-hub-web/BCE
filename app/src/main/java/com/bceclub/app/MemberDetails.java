@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -494,7 +495,7 @@ public class MemberDetails extends Fragment {
                     public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
 
                         month = month + 1;
-                        String date = dayOfMonth + "-" + month + "-" + year;
+                        String date = year + "-" + month + "-" + dayOfMonth;
                         //String date = year+"-"+month+"-"+day;
                         date_d.setText(date);
                     }
@@ -576,6 +577,7 @@ public class MemberDetails extends Fragment {
                     String str_date = date_d.getText().toString().trim();
                     String str_time = time_t.getText().toString().trim();
                     String str_remarke = remarkes.getText().toString().trim();
+                    Log.d("RanjeetDate",str_date);
 
                     sendYourOneToOneConnection(user_id,member_ID,str_date,str_time,str_remarke);
 
@@ -643,6 +645,9 @@ public class MemberDetails extends Fragment {
             public void onResponse(Call<StatusDetails_Model> call, Response<StatusDetails_Model> response) {
 
                 progressDialog.dismiss();
+
+
+                Log.d("Ranjeet",response.toString());
 
                 if(response.body() != null){
 
