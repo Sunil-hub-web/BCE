@@ -470,8 +470,8 @@ public class MemberDetails extends Fragment {
 
         //binding.datatime.setEnabled(false);
 
-        date = new SimpleDateFormat("dd/mm/yyyy", Locale.getDefault()).format(new Date());
-        time = new SimpleDateFormat("hh:mm aa", Locale.getDefault()).format(new Date());
+        date = new SimpleDateFormat("yyyy-mm-dd", Locale.getDefault()).format(new Date());
+        time = new SimpleDateFormat("hh:mm", Locale.getDefault()).format(new Date());
 
        /* setListener = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -527,7 +527,7 @@ public class MemberDetails extends Fragment {
 
                         String sDate = date;
 
-                        String[] string = sDate.split("/");
+                        String[] string = sDate.split("-");
 
                         int sDay = Integer.parseInt(string[0]);
 
@@ -535,7 +535,7 @@ public class MemberDetails extends Fragment {
                         calendar1.set(Calendar.HOUR_OF_DAY, str_hour);
                         calendar1.set(Calendar.MINUTE, str_minute);
 
-                        time_t.setText(android.text.format.DateFormat.format("hh:mm aa", calendar1));
+                        time_t.setText(android.text.format.DateFormat.format("hh:mm", calendar1));
 
                         if (calendar1.getTimeInMillis() == Calendar.getInstance().getTimeInMillis()) {
 
