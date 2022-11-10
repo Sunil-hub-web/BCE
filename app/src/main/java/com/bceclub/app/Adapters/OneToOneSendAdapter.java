@@ -87,6 +87,12 @@ public class OneToOneSendAdapter extends RecyclerView.Adapter<OneToOneSendAdapte
             bankaccountadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             holder.BusinessStatus.setAdapter(bankaccountadapter);
 
+        }else if(statues.equals("Completed")){
+
+            holder.BusinessStatus.setText(statues);
+            holder.BusinessStatus.setFocusable(false);
+            holder.BusinessStatus.setEnabled(false);
+
         }else{
 
             holder.BusinessStatus.setText(statues);
@@ -114,9 +120,6 @@ public class OneToOneSendAdapter extends RecyclerView.Adapter<OneToOneSendAdapte
                 // create Toast with user selected value
                 Toast.makeText(context, item, Toast.LENGTH_LONG).show();
 
-
-
-
             }
         });
 
@@ -128,6 +131,7 @@ public class OneToOneSendAdapter extends RecyclerView.Adapter<OneToOneSendAdapte
                 String item = holder.BusinessStatus.getText().toString().trim();
                 updateStatues(oto_id,item);
                 holder.BusinessStatus.setFocusable(false);
+                holder.BusinessStatus.setEnabled(false);
 
             }
         });
@@ -137,6 +141,7 @@ public class OneToOneSendAdapter extends RecyclerView.Adapter<OneToOneSendAdapte
             public void onClick(View view) {
 
                 holder.BusinessStatus.setFocusable(true);
+                holder.BusinessStatus.setEnabled(true);
             }
         });
 
