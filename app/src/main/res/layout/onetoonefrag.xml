@@ -38,7 +38,7 @@
             android:id="@+id/lin_button">
 
             <Button
-                android:id="@+id/localSearch"
+                android:id="@+id/Receive_List"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="@dimen/fifteen"
@@ -50,7 +50,7 @@
                 app:layout_constraintStart_toStartOf="parent" />
 
             <Button
-                android:id="@+id/globalSearch"
+                android:id="@+id/Send_List"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -65,9 +65,9 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleronetoone"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@id/btn_sendonetonne"
             android:layout_below="@+id/lin_button"
             android:layout_marginTop="@dimen/ten">
 
@@ -76,7 +76,7 @@
         <!--<include layout="@layout/onetoone_view"></include>-->
 
 
-        <Button
+        <!--<Button
             android:id="@+id/btn_sendonetonne"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -88,7 +88,18 @@
             android:textSize="12sp"
             android:backgroundTint="@color/red"
             android:text="Send One-To-One"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"/>-->
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btn_sendonetonne"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/red"
+            android:src="@drawable/handshakeeee"
+            app:tint="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"/>
 
 
     </RelativeLayout>

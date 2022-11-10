@@ -41,6 +41,12 @@
         <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/member_ask_item.xml" value="0.20416666666666666" />
         <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/member_item.xml" value="0.20416666666666666" />
         <entry key="..\:/newFolder/BCE-master/app/src/main/res/layout/request_recieved.xml" value="0.20416666666666666" />
+        <entry key="..\:/newFolder/BCE/app/src/main/res/layout/fragment_home_frag.xml" value="0.18703703703703703" />
+        <entry key="..\:/newFolder/BCE/app/src/main/res/layout/fragment_member_ask.xml" value="0.18703703703703703" />
+        <entry key="..\:/newFolder/BCE/app/src/main/res/layout/fragment_member_details.xml" value="0.17777777777777778" />
+        <entry key="..\:/newFolder/BCE/app/src/main/res/layout/onetoone_view.xml" value="0.17777777777777778" />
+        <entry key="..\:/newFolder/BCE/app/src/main/res/layout/onetooneconn.xml" value="0.17777777777777778" />
+        <entry key="..\:/newFolder/BCE/app/src/main/res/layout/onetoonefrag.xml" value="0.17777777777777778" />
         <entry key="app/src/main/res/drawable/ic_back.xml" value="0.2085" />
         <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_24.xml" value="0.2085" />
         <entry key="app/src/main/res/drawable/ic_baseline_navigate_next_24.xml" value="0.2615" />

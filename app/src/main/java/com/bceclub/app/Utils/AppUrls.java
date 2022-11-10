@@ -38,6 +38,8 @@ public class AppUrls {
     public static final String connectionlist = "api.php?method=connectionlist";
     public static final String leadstatusupdate = "api.php?method=leadstatusupdate";
     public static final String onetoonelist = "api.php?method=onetoonelist";
+    public static final String update_oto_sts = "api.php?method=update_oto_sts";
+    public static final String send_onetoone = "api.php?method=send_onetoone";
 
 
 

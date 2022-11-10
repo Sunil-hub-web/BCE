@@ -24,16 +24,16 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/thirty_five"
-                android:background="@color/blue">
+                android:background="@color/white">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/twenty"
-                    android:text="Meeting Info"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/twenty">
+                    android:layout_marginLeft="@dimen/ten"
+                    android:text="Meeting Info :"
+                    android:textColor="@color/blue"
+                    android:textSize="@dimen/edittextsize">
 
                 </TextView>
 
@@ -146,17 +146,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/thirty_five"
-                android:background="@color/yellow"
+                android:background="@color/white"
                 android:layout_marginTop="@dimen/twenty">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/twenty"
-                    android:text="Recieved From"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/twenty">
+                    android:layout_marginLeft="@dimen/ten"
+                    android:text="Recieved From :"
+                    android:textColor="@color/yellow"
+                    android:textSize="@dimen/edittextsize">
 
                 </TextView>
 
@@ -172,12 +172,14 @@
                     android:id="@+id/profilePicMember"
                     android:layout_width="80dp"
                     android:layout_height="80dp"
-                    android:layout_margin="12dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="12dp"
                     android:src="@drawable/glen"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    />
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -258,8 +260,19 @@
 
                         </TextView>
 
-
                     </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/locationDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Khordha, Bhubaneswar"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/five"
+                        android:textSize="@dimen/ten"
+                        android:textStyle="bold">
+
+                    </TextView>
 
 
                 </LinearLayout>
@@ -267,7 +280,7 @@
 
             </RelativeLayout>
 
-            <TextView
+           <!-- <TextView
                 android:id="@+id/text1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -293,52 +306,46 @@
                 android:textSize="@dimen/ten"
                 android:textStyle="bold">
 
-            </TextView>
+            </TextView>-->
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/thirty_five"
-                android:background="@color/red"
-                android:layout_marginTop="@dimen/twenty">
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/twenty"
+                android:layout_weight="2">
 
                 <TextView
                     android:layout_width="wrap_content"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="@dimen/twenty"
-                    android:text="Lead Status"
-                    android:textColor="@color/white"
-                    android:textSize="@dimen/twenty">
+                    android:layout_marginLeft="@dimen/ten"
+                    android:text="Lead Status :"
+                    android:textColor="@color/red"
+                    android:textSize="@dimen/edittextsize">
 
                 </TextView>
 
+                <ImageView
+                    android:id="@+id/btn_edit"
+                    android:layout_width="@dimen/twenty"
+                    android:layout_height="@dimen/twenty"
+                    android:src="@drawable/editing"
+                    android:layout_marginRight="@dimen/twenty"
+                    app:backgroundTint="@color/red"
+                    android:backgroundTintMode="src_in">
+
+                </ImageView>
+
 
             </LinearLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/spinnerLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Select Status"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_margin="@dimen/ten">
-
-                <AutoCompleteTextView
-                    android:id="@+id/BusinessStatus"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="none" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:weightSum="2">
 
-                <Button
+                <!--<Button
                     android:id="@+id/btn_edit"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -348,7 +355,26 @@
                     android:backgroundTint="@color/red"
                     android:text="Edit"
                     app:layout_constraintEnd_toStartOf="@+id/guideline3"
-                    app:layout_constraintStart_toStartOf="parent" />
+                    app:layout_constraintStart_toStartOf="parent" />-->
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/spinnerLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                    android:layout_width="0dp"
+                    android:layout_weight="1.3"
+                    android:layout_height="wrap_content"
+                    android:hint="Select Status"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:boxBackgroundColor="@color/white"
+                    android:layout_margin="@dimen/ten">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/BusinessStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
                 <Button
                     android:id="@+id/btn_submit"
@@ -356,7 +382,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
                     android:layout_marginEnd="@dimen/fifteen"
-                    android:layout_weight="1"
+                    android:layout_weight="0.7"
                     android:backgroundTint="@color/red"
                     android:text="Submit"
                     app:layout_constraintEnd_toEndOf="parent"
