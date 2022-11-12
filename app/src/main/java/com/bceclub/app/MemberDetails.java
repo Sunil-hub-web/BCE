@@ -127,9 +127,14 @@ public class MemberDetails extends Fragment {
             public void onClick(View view) {
 
                 onetoone();
+            }
+        });
 
+        binding.requestAlert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-                /*simpleApi = RetrofitInstance.getClient().create(SimpleApi.class);
+                 simpleApi = RetrofitInstance.getClient().create(SimpleApi.class);
                 Map<String, String> params = new HashMap<>();
                 params.put("member_id", member_ID);
                 params.put("user_id", user_id);
@@ -148,7 +153,6 @@ public class MemberDetails extends Fragment {
                         throw new RuntimeException("Test Crash for BceClube"); // Force a crash
                     }
                 });
-*/
             }
         });
 

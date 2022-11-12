@@ -100,11 +100,19 @@ public class BusinessLeadDetailFragment extends Fragment {
 
                             progressDialog.dismiss();
                             businessLeadSend.clear();
-                            for(BusinessLeadDetailModalClass.Send businessReceiveList : response.body().getSendList()){
 
-                                businessLeadSend.add(businessReceiveList);
-                                sendAdapter.updateBusinessLead(businessReceiveList);
+                            if(response.body().getSendList() != null){
+
+                                for(BusinessLeadDetailModalClass.Send businessReceiveList : response.body().getSendList()){
+
+                                    businessLeadSend.add(businessReceiveList);
+                                    sendAdapter.updateBusinessLead(businessReceiveList);
+                                }
+                            }else{
+
+                                Toast.makeText(getActivity(), "Data Is Not Avilable", Toast.LENGTH_SHORT).show();
                             }
+                            
                         }else{
 
                             Toast.makeText(getActivity(), "Data Is Not Avilable", Toast.LENGTH_SHORT).show();

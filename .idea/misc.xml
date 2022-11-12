@@ -8,13 +8,15 @@
         <entry key="..\:/Newfolder/BCE/app/src/main/res/drawable/ic_fav_connection.xml" value="0.1375" />
         <entry key="..\:/Newfolder/BCE/app/src/main/res/layout/activity_login.xml" value="0.22083333333333333" />
         <entry key="..\:/Newfolder/BCE/app/src/main/res/layout/activity_main.xml" value="0.22083333333333333" />
-        <entry key="..\:/Newfolder/BCE/app/src/main/res/layout/business_lead_item.xml" value="0.22083333333333333" />
+        <entry key="..\:/Newfolder/BCE/app/src/main/res/layout/business_lead_item.xml" value="0.25" />
         <entry key="..\:/Newfolder/BCE/app/src/main/res/layout/business_lead_send_item.xml" value="0.22083333333333333" />
         <entry key="..\:/Newfolder/BCE/app/src/main/res/layout/business_send_item.xml" value="0.22083333333333333" />
+        <entry key="..\:/Newfolder/BCE/app/src/main/res/layout/fragment_business_given.xml" value="0.19166666666666668" />
         <entry key="..\:/Newfolder/BCE/app/src/main/res/layout/fragment_business_lead_detail.xml" value="0.22083333333333333" />
         <entry key="..\:/Newfolder/BCE/app/src/main/res/layout/fragment_home_frag.xml" value="0.33" />
         <entry key="..\:/Newfolder/BCE/app/src/main/res/layout/fragment_member_details.xml" value="0.22083333333333333" />
         <entry key="..\:/Newfolder/BCE/app/src/main/res/layout/fragment_member_frag.xml" value="0.21203703703703702" />
+        <entry key="..\:/Newfolder/BCE/app/src/main/res/layout/fragment_review.xml" value="0.19166666666666668" />
         <entry key="..\:/Newfolder/BCE/app/src/main/res/layout/logout_logout.xml" value="0.22083333333333333" />
         <entry key="..\:/Newfolder/BCE/app/src/main/res/layout/member_item.xml" value="0.22083333333333333" />
         <entry key="..\:/Newfolder/BCE/app/src/main/res/layout/onetoone_view.xml" value="0.22083333333333333" />

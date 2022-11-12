@@ -37,6 +37,7 @@
                         android:src="@drawable/logo" />-->
 
                     <TextView
+                        android:id="@+id/header_text"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
@@ -209,7 +210,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginBottom="10dp"
-                        android:text="Business Given"
+                        android:text="Business Thanks Note"
                         android:textColor="@color/white" />
 
                 </LinearLayout>
@@ -257,7 +258,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="10dp"
                         android:layout_marginBottom="10dp"
-                        android:text="Business Received"
+                        android:text="Business Leads"
                         android:textColor="@color/white" />
 
                 </LinearLayout>

@@ -32,6 +32,7 @@ import com.bceclub.app.Models.DialogBoxModalClass;
 import com.bceclub.app.R;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -101,11 +102,13 @@ public class BusinessLeadDetailAdapter extends RecyclerView.Adapter<BusinessLead
                 holder.statusText.setVisibility(View.GONE);
                 holder.amt.setVisibility(View.GONE);
                 holder.layout.setVisibility(View.VISIBLE);
+                holder.btn_uploadInvoice.setVisibility(View.VISIBLE);
                 break;
             case "Business Closed":
                 holder.statusText.setVisibility(View.VISIBLE);
                 holder.layout.setVisibility(View.GONE);
                 holder.submit.setVisibility(View.GONE);
+                holder.btn_uploadInvoice.setVisibility(View.GONE);
                 holder.status.setText(businessLead.get(position).getLeadStatus().getStatus());
                 holder.amt.setText("Amount: " + businessLead.get(position).getLeadStatus().getAmount());
                 break;
@@ -114,6 +117,7 @@ public class BusinessLeadDetailAdapter extends RecyclerView.Adapter<BusinessLead
                 holder.layout.setVisibility(View.GONE);
                 holder.submit.setVisibility(View.GONE);
                 holder.amt.setVisibility(View.GONE);
+                holder.btn_uploadInvoice.setVisibility(View.VISIBLE);
                 holder.status.setText(businessLead.get(position).getLeadStatus().getStatus());
 
         }
@@ -164,6 +168,24 @@ public class BusinessLeadDetailAdapter extends RecyclerView.Adapter<BusinessLead
                 }
             }
         });
+
+        Picasso.get().load(businessLead.get(position).getReceiveFrom().getImage()).into(holder.profilePicMember, new com.squareup.picasso.Callback() {
+            @Override
+            public void onSuccess() {
+                //holder.progressBar.setVisibility(View.GONE);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                // holder.progressBar.setVisibility(View.GONE);
+            }
+        });
+
+        holder.clientName.setText(businessLead.get(position).getReceiveFrom().getName());
+        holder.serviceProvide.setText(businessLead.get(position).getReceiveFrom().getCategory());
+        holder.locationName.setText(businessLead.get(position).getReceiveFrom().getClubName());
+        holder.locationDetails.setText(businessLead.get(position).getReceiveFrom().getAddress());
+
     }
 
     @Override
@@ -209,9 +231,10 @@ public class BusinessLeadDetailAdapter extends RecyclerView.Adapter<BusinessLead
 
     static class BusinessLeadDetailViewHolder extends RecyclerView.ViewHolder {
 
-        TextView date, title, name, stars, phone, remark, amt, statusText;
+        TextView date, title, name, stars, phone, remark, amt, statusText,
+                clientName,serviceProvide,locationName,locationDetails;
         AutoCompleteTextView status;
-        ImageView imageCalling;
+        ImageView imageCalling,profilePicMember;
         TextInputEditText amount;
         Button submit,btn_uploadInvoice;
         TextInputLayout layout;
@@ -232,6 +255,11 @@ public class BusinessLeadDetailAdapter extends RecyclerView.Adapter<BusinessLead
             this.btn_uploadInvoice = itemView.findViewById(R.id.btn_uploadInvoice);
             this.submit = itemView.findViewById(R.id.submitStatus);
             this.layout = itemView.findViewById(R.id.spinnerLayout);
+            this.locationDetails = itemView.findViewById(R.id.locationDetails);
+            this.clientName = itemView.findViewById(R.id.clientName);
+            this.serviceProvide = itemView.findViewById(R.id.serviceProvide);
+            this.locationName = itemView.findViewById(R.id.locationName);
+            this.profilePicMember = itemView.findViewById(R.id.profilePicMember);
         }
     }
 

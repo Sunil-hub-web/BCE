@@ -194,6 +194,7 @@ public class home_frag extends Fragment {
                     binding.review.setText((homeModalClass.getTotalinfo().getTotalReview()));
                     binding.guest.setText((homeModalClass.getTotalinfo().getTotalGuestList()));
                     binding.requestAlert.setText((homeModalClass.getMeetingwise().getRequestAlert()));
+                    binding.headerText.setText(homeModalClass.getProfileInfo().getClubName());
                 }
             }
 

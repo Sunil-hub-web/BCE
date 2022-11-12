@@ -87,27 +87,33 @@ public class GuestList extends Fragment {
                     progressDialog.dismiss();
 
                     try{
+                        if(response.body() != null){
 
-                        if (response.body().getGuestList().isEmpty()){
+                            if (response.body().getGuestList() == null){
 
-                            Toast.makeText(getContext(), "No Guests", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getContext(), "No Guests", Toast.LENGTH_SHORT).show();
 
-                        } else {
+                            } else {
 
-                            guestList.clear();
+                                guestList.clear();
 
-                            for (GuestListModalClass.Guest guest : response.body().getGuestList()) {
+                                for (GuestListModalClass.Guest guest : response.body().getGuestList()) {
 
-                                guestList.add(guest);
-                                mAdapter.updateGuestList(guest);
+                                    guestList.add(guest);
+                                    mAdapter.updateGuestList(guest);
+                                }
                             }
+
+                        }else{
+
+                            Toast.makeText(getActivity(), "Data Is Not Avilable", Toast.LENGTH_SHORT).show();
                         }
 
                     }catch(Exception e){
 
                         e.printStackTrace();
 
-                        throw new RuntimeException("Test Crash for BceClube");
+                        throw new RuntimeException("Test Crash for BceClube"+e);
 
                     }
                 }

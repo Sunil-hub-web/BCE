@@ -93,7 +93,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Business Lead Detail"
-                android:textSize="11sp"
+                android:textSize="@dimen/twelve_size"
                 android:layout_marginTop="4dp"
                 android:textColor="@color/purpleFont"
                 android:textStyle="bold" />
@@ -122,7 +122,7 @@
                     android:layout_marginTop="4dp"
                     android:text="Smruthi Ranjan"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:textSize="11sp"
+                    android:textSize="@dimen/twelve_size"
                     app:layout_constraintStart_toEndOf="@id/avatarImg"
                     />
 
@@ -133,7 +133,7 @@
                     android:layout_marginStart="4dp"
                     android:layout_marginTop="4dp"
                     android:text="+91 7008 123 456"
-                    android:textSize="11sp"
+                    android:textSize="@dimen/twelve_size"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toEndOf="@id/mobileImg"
                     app:layout_constraintTop_toBottomOf="@id/profileName"
@@ -165,9 +165,147 @@
                 android:id="@+id/remark"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="11sp"
+                android:textSize="@dimen/twelve_size"
                 android:layout_marginTop="4dp"
                 android:text="Remarks: He need his website maintainance, development, &amp; promotion"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/twenty"
+                android:background="@color/white"
+                android:layout_marginTop="@dimen/five">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Recieved From :"
+                    android:textColor="@color/purpleFont"
+                    android:textSize="@dimen/twelve_size"
+                    android:textStyle="bold">
+
+                </TextView>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/profilePicMember"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="12dp"
+                    android:src="@drawable/glen"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_toRightOf="@+id/profilePicMember"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/clientName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Debasis Patnaik"
+                        android:textColor="@color/black"
+                        android:textSize="@dimen/twelve_size"
+                        android:textStyle="normal">
+
+                    </TextView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/five"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/serviceProvide"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text="UTILITY SERVICES : "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/twelve_size"
+                            android:textStyle="normal">
+
+                        </TextView>
+
+                      <!--  <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:text="BCE"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textsize"
+                            android:textStyle="bold">
+
+                        </TextView>-->
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/five"
+                        android:weightSum="2">
+
+                        <TextView
+                            android:id="@+id/locationName"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.2"
+                            android:text="BHUBANESWAR : "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/twelve_size"
+                            android:textStyle="normal">
+
+                        </TextView>
+<!--
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.5"
+                            android:text="Security "
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textsize"
+                            android:textStyle="bold">
+
+                        </TextView>
+-->
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/locationDetails"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Khordha, Bhubaneswar"
+                        android:textColor="@color/black"
+                        android:layout_marginTop="@dimen/five"
+                        android:textSize="@dimen/ten"
+                        android:textStyle="normal">
+
+                    </TextView>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
 
 
             <TextView
@@ -179,22 +317,24 @@
                 android:textColor="@color/purpleFont"
                 android:textStyle="bold" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/spinnerLayout"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="4dp"
-                android:hint="Select Status"
-                app:layout_constraintStart_toStartOf="parent">
 
-                <AutoCompleteTextView
-                    android:id="@+id/BusinessStatus"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/spinnerLayout"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="none" />
+                    android:layout_height="@dimen/fifty"
+                    android:layout_margin="@dimen/five"
+                    app:boxBackgroundColor="@color/white"
+                    android:hint="Select Status"
+                    app:layout_constraintStart_toStartOf="parent">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <AutoCompleteTextView
+                        android:id="@+id/BusinessStatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
                 android:id="@+id/status"
@@ -230,20 +370,40 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:id="@+id/btn_uploadInvoice"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="2"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/linear_layout"
-                android:layout_width="match_parent"
-                android:layout_marginLeft="@dimen/fifty"
-                android:layout_marginRight="@dimen/fifty"
-                android:layout_marginTop="@dimen/ten"
-                android:layout_marginBottom="@dimen/ten"
-                android:textSize="12sp"
-                android:backgroundTint="@color/red"
-                android:text="Upload Invoice"
-                android:layout_height="wrap_content"/>
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btn_uploadInvoice"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_marginTop="@dimen/ten"
+                    android:layout_marginBottom="@dimen/ten"
+                    android:textSize="12sp"
+                    android:backgroundTint="@color/red"
+                    android:text="Upload Invoice"
+                    android:layout_height="wrap_content"
+                    android:visibility="visible"/>
+
+                <Button
+                    android:id="@+id/submitStatus"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:layout_marginEnd="@dimen/fifteen"
+                    android:backgroundTint="@color/red"
+                    android:text="Submit"/>
+
+            </LinearLayout>
+
+
 
             <!--<com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -262,19 +422,11 @@
 
             </com.google.android.material.textfield.TextInputLayout>-->
 
+
+
         </LinearLayout>
 
-        <Button
-            android:id="@+id/submitStatus"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/linear_layout"
-            android:layout_width="wrap_content"
-            android:layout_margin="10dp"
-            android:textSize="12sp"
-            android:backgroundTint="@color/red"
-            android:text="SUBMIT"
-            android:layout_height="wrap_content"/>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
