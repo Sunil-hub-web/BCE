@@ -418,10 +418,6 @@ public class MemberDetails extends Fragment {
             amount.setError("This field is required");
             return false;
         }
-        if (invoice.length() == 0) {
-            invoice.setError("This field is required");
-            return false;
-        }
         if (remarksThanksNote.length() == 0) {
             remarksThanksNote.setError("This field is required");
             return false;

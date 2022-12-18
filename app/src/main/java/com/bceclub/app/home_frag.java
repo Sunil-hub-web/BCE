@@ -73,7 +73,6 @@ public class home_frag extends Fragment {
         setData();
         String img_url1 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiTVNHhNbyNuGl2NnIeaC72wk4zvapPEYOjcu6Wf3xYjPUaNpdWWdp-EI80NUsvVSzLw&usqp=CAU";
         String img_url2 = "https://thumbs.dreamstime.com/b/business-development-to-success-growth-banking-financial-global-network-businessman-hold-pointing-arrow-up-graph-227718315.jpg";
-        String img_url3 = "https://www.silworld.in/wp-content/uploads/2019/10/career-banner-compressor.jpg";
         String img_url4 = "https://www.investni.com/sites/default/files/2020-06/business_support_investment_banner_904x466.jpg";
         String img_url5 = "https://researchleap.com/wp-content/uploads/2019/10/shutterstock_718547992-min-e1571736994121.jpg";
 
@@ -81,7 +80,6 @@ public class home_frag extends Fragment {
         List<SlideModel> imageList = new ArrayList<SlideModel>();
         imageList.add(new SlideModel(img_url1, ScaleTypes.FIT));
         imageList.add(new SlideModel(img_url2, ScaleTypes.CENTER_CROP));
-        imageList.add(new SlideModel(img_url3, ScaleTypes.CENTER_CROP));
         imageList.add(new SlideModel(img_url4, ScaleTypes.CENTER_CROP));
         imageList.add(new SlideModel(img_url5, ScaleTypes.CENTER_CROP));
         imageSlider.setImageList(imageList);
@@ -103,13 +101,13 @@ public class home_frag extends Fragment {
             }
         });
 
-        binding.leadGivenLayout.setOnClickListener(new View.OnClickListener() {
+       /* binding.leadGivenLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 //                Navigation.findNavController(binding.getRoot()).navigate(R.id.action_home_frag_to_businessLeadDetailFragment);
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment, new BusinessLeadDetailFragment()).commit();
             }
-        });
+        });*/
 
         binding.guestLayout.setOnClickListener(new View.OnClickListener() {
             @Override

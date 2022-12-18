@@ -3,15 +3,20 @@ package com.bceclub.app;
 import android.app.DownloadManager;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.IntentFilter;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Environment;
+import android.text.Html;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +25,7 @@ import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bceclub.app.API.RetrofitInstance;
 import com.bceclub.app.API.SimpleApi;
@@ -27,6 +33,7 @@ import com.bceclub.app.Models.TenderListModalClass;
 import com.bceclub.app.databinding.FragmentTenderListBinding;
 
 import java.io.File;
+import java.util.Objects;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -168,12 +175,12 @@ public class TenderList extends Fragment {
 
 
     void downloadFile(String url){
-        File direct = new File(getActivity().getExternalFilesDir(null), "/Tender");
+        /*File direct = new File(getActivity().getExternalFilesDir(null), "/Tender");
         if(!direct.exists()){
             direct.mkdir();
-        }
+        }*/
 
-        DownloadManager mgr = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
+      /*  DownloadManager mgr = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
 
         Uri downloadUri = Uri.parse(url);
         DownloadManager.Request request = new DownloadManager.Request(downloadUri);
@@ -183,7 +190,26 @@ public class TenderList extends Fragment {
                 .setDescription("Downloading...")
                 .setDestinationInExternalPublicDir(Environment.DIRECTORY_DOCUMENTS, "/Tender");
 
-        mgr.enqueue(request);
+        mgr.enqueue(request);*/
+
+        DownloadManager manager = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
+        Uri uri = Uri.parse(url);
+        DownloadManager.Request request = new DownloadManager.Request(uri);
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
+        manager.enqueue(request);
+
+
+
+       /* DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+        request.setTitle("filename");
+        request.allowScanningByMediaScanner();
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, "filename");
+        DownloadManager manager = (DownloadManager) getActivity().getSystemService(Context.DOWNLOAD_SERVICE);
+        if(manager!=null) manager.enqueue(request);
+        //getActivity().dismissAllowingStateLoss();
+
+        Toast.makeText(getActivity(), "dismissAllowingStateLoss", Toast.LENGTH_SHORT).show();*/
 
     }
 }

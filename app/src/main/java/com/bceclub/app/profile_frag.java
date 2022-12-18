@@ -100,7 +100,7 @@ public class profile_frag extends Fragment {
             public void onClick(View view) {
                 //setEditableTrue();
 
-                //binding.nameInp.setClickable(false);
+                binding.nameInp.setEnabled(true);
                 binding.emailIdInp.setEnabled(true);
                 binding.PhoneInp.setEnabled(true);
                 binding.companyNameInp.setEnabled(true);
@@ -110,6 +110,27 @@ public class profile_frag extends Fragment {
                 binding.dobInp.setEnabled(true);
                 binding.profilePicInp.setEnabled(true);
 
+                binding.companyInfoSubmitBtn.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        binding.companyInfoEditBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                binding.companyInfoSubmitBtn.setVisibility(View.VISIBLE);
+
+                binding.emailIdInp.setEnabled(true);
+                binding.PhoneInp.setEnabled(true);
+                binding.companyNameInp.setEnabled(true);
+                binding.designationInp.setEnabled(true);
+                binding.websiteInp.setEnabled(true);
+                binding.tagsInp.setEnabled(true);
+                binding.dobInp.setEnabled(true);
+                binding.profilePicInp.setEnabled(true);
+
+
             }
         });
 
@@ -117,6 +138,7 @@ public class profile_frag extends Fragment {
             @Override
             public void onClick(View view) {
 
+                binding.locationInfoSubmitBtn.setVisibility(View.VISIBLE);
                 //Location Info
 
                 binding.addressInp.setEnabled(true);
@@ -131,10 +153,13 @@ public class profile_frag extends Fragment {
             @Override
             public void onClick(View view) {
 
+                binding.otherInfoSubmitBtn.setVisibility(View.VISIBLE);
+
                 //Other Info
                 binding.addressInp.setEnabled(true);
                 binding.aadharNoInp.setEnabled(true);
                 binding.gstNoInp.setEnabled(true);
+
 
 
             }
@@ -144,6 +169,7 @@ public class profile_frag extends Fragment {
             @Override
             public void onClick(View view) {
 
+                binding.nomineeUpdateBtn.setVisibility(View.VISIBLE);
                 //Nominee
                 binding.nominee1name.setEnabled(true);
                 binding.nominee1mobile.setEnabled(true);
@@ -166,14 +192,18 @@ public class profile_frag extends Fragment {
             @Override
             public void onClick(View view) {
 
+                binding.otherBasicInfoUpdateInfo.setVisibility(View.VISIBLE);
                 //other basic info
 
-                binding.otherOrganizationInp.setEnabled(false);
-                binding.businessDetailInp.setEnabled(false);
-                binding.expInp.setEnabled(false);
+                binding.otherOrganizationInp.setEnabled(true);
+                binding.businessDetailInp.setEnabled(true);
+                binding.expInp.setEnabled(true);
+
+
 
             }
         });
+
 
         binding.companyInfoSubmitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -529,10 +559,14 @@ public class profile_frag extends Fragment {
 
     void setData() {
 
-        ProgressDialog progressDialog = new ProgressDialog(getActivity());
+       /* ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Getting Your Details Please Wait...");
         progressDialog.setCanceledOnTouchOutside(false);
-        progressDialog.show();
+        progressDialog.show();*/
+
+        binding.shimmerView.setVisibility(View.VISIBLE);
+        binding.shimmerView.startShimmerAnimation();
+        binding.dataLayout.setVisibility(View.GONE);
 
 
         simpleApi = RetrofitInstance.getClient().create(SimpleApi.class);
@@ -543,16 +577,34 @@ public class profile_frag extends Fragment {
             @Override
             public void onResponse(Call<ProfileModalClass> call, Response<ProfileModalClass> response) {
                 if (response.isSuccessful()) {
-                    progressDialog.dismiss();
+                   // progressDialog.dismiss();
+
+                    binding.shimmerView.setVisibility(View.GONE);
+                    binding.shimmerView.stopShimmerAnimation();
+                    binding.dataLayout.setVisibility(View.VISIBLE);
+
+
                     ProfileModalClass profileModalClass = response.body();
 
                     //profile
-                    Picasso.get().load(profileModalClass.getImg()).into(binding.profileImage);
-                    binding.nameProfile.setText(profileModalClass.getUserInfo().get(0).getUrName());
-                    binding.clubNameProfile.setText("Club: " + profileModalClass.getUserInfo().get(0).getClbName());
-                    binding.CompanyProfile.setText("Company: " + profileModalClass.getUserInfo().get(0).getCdCompany());
-                    binding.locationProfile.setText("Location: " + profileModalClass.getUserInfo().get(0).getDistName() + ", " + profileModalClass.getUserInfo().get(0).getCitName());
 
+                    String image = String.valueOf(profileModalClass.getImg());
+
+                    if(image.equals("")){
+
+                        binding.nameProfile.setText(profileModalClass.getUserInfo().get(0).getUrName());
+                        binding.clubNameProfile.setText("Club: " + profileModalClass.getUserInfo().get(0).getClbName());
+                        binding.CompanyProfile.setText("Company: " + profileModalClass.getUserInfo().get(0).getCdCompany());
+                        binding.locationProfile.setText("Location: " + profileModalClass.getUserInfo().get(0).getDistName() + ", " + profileModalClass.getUserInfo().get(0).getCitName());
+
+                    }else{
+
+                        Picasso.get().load(profileModalClass.getImg()).into(binding.profileImage);
+                        binding.nameProfile.setText(profileModalClass.getUserInfo().get(0).getUrName());
+                        binding.clubNameProfile.setText("Club: " + profileModalClass.getUserInfo().get(0).getClbName());
+                        binding.CompanyProfile.setText("Company: " + profileModalClass.getUserInfo().get(0).getCdCompany());
+                        binding.locationProfile.setText("Location: " + profileModalClass.getUserInfo().get(0).getDistName() + ", " + profileModalClass.getUserInfo().get(0).getCitName());
+                    }
 
                     //company Info
                     binding.nameInp.setText(profileModalClass.getUserInfo().get(0).getUrName());
@@ -569,17 +621,16 @@ public class profile_frag extends Fragment {
                     binding.profilePicInp.setText(profileModalClass.getUserInfo().get(0).getUrPhoto());
                     binding.companyLogoInp.setText(profileModalClass.getUserInfo().get(0).getCdPhoto());
 
-                    binding.nameInp.setFocusable(false);
-                    binding.emailIdInp.setFocusable(false);
-                    binding.companyNameInp.setFocusable(false);
-                    binding.PhoneInp.setFocusable(false);
-                    binding.designationInp.setFocusable(false);
-                    binding.websiteInp.setFocusable(false);
-                    binding.tagsInp.setFocusable(false);
-                    binding.dobInp.setFocusable(false);
-                    binding.profilePicInp.setFocusable(false);
-                    binding.companyLogoInp.setFocusable(false);
-
+                    binding.nameInp.setEnabled(false);
+                    binding.emailIdInp.setEnabled(false);
+                    binding.companyNameInp.setEnabled(false);
+                    binding.PhoneInp.setEnabled(false);
+                    binding.designationInp.setEnabled(false);
+                    binding.websiteInp.setEnabled(false);
+                    binding.tagsInp.setEnabled(false);
+                    binding.dobInp.setEnabled(false);
+                    binding.profilePicInp.setEnabled(false);
+                    binding.companyLogoInp.setEnabled(false);
 
 
                     //Location Info
@@ -587,19 +638,18 @@ public class profile_frag extends Fragment {
                     binding.districtInp.setText(profileModalClass.getUserInfo().get(0).getDistName());
                     binding.cityInp.setText(profileModalClass.getUserInfo().get(0).getCitName());
 
-                    binding.addressInp.setFocusable(false);
-                    binding.districtInp.setFocusable(false);
-                    binding.cityInp.setFocusable(false);
-
+                    binding.addressInp.setEnabled(false);
+                    binding.districtInp.setEnabled(false);
+                    binding.cityInp.setEnabled(false);
 
                     //Other Info
                     binding.panNoInp.setText(profileModalClass.getUserInfo().get(0).getCdPanNo());
                     binding.aadharNoInp.setText(profileModalClass.getUserInfo().get(0).getCdAadharNo());
                     binding.gstNoInp.setText(profileModalClass.getUserInfo().get(0).getCdGstNo());
 
-                    binding.panNoInp.setFocusable(false);
-                    binding.aadharNoInp.setFocusable(false);
-                    binding.gstNoInp.setFocusable(false);
+                    binding.panNoInp.setEnabled(false);
+                    binding.aadharNoInp.setEnabled(false);
+                    binding.gstNoInp.setEnabled(false);
 
                     //Nominee
                     binding.nominee1name.setText(profileModalClass.getUserInfo().get(0).getCdNomineeName1());
@@ -614,17 +664,17 @@ public class profile_frag extends Fragment {
                     binding.nominee3mobile.setText(profileModalClass.getUserInfo().get(0).getCdNomineePhone3());
                     binding.nominee3desig.setText(profileModalClass.getUserInfo().get(0).getCdNomineeRel3());
 
-                    binding.nominee1name.setFocusable(false);
-                    binding.nominee1mobile.setFocusable(false);
-                    binding.nominee1desig.setFocusable(false);
+                    binding.nominee1name.setEnabled(false);
+                    binding.nominee1mobile.setEnabled(false);
+                    binding.nominee1desig.setEnabled(false);
 
-                    binding.nominee2name.setFocusable(false);
-                    binding.nominee2mobile.setFocusable(false);
-                    binding.nominee2desig.setFocusable(false);
+                    binding.nominee2name.setEnabled(false);
+                    binding.nominee2mobile.setEnabled(false);
+                    binding.nominee2desig.setEnabled(false);
 
-                    binding.nominee3name.setFocusable(false);
-                    binding.nominee3mobile.setFocusable(false);
-                    binding.nominee3desig.setFocusable(false);
+                    binding.nominee3name.setEnabled(false);
+                    binding.nominee3mobile.setEnabled(false);
+                    binding.nominee3desig.setEnabled(false);
 
 
                     //other basic info
@@ -632,15 +682,17 @@ public class profile_frag extends Fragment {
                     binding.businessDetailInp.setText(profileModalClass.getUserInfo().get(0).getCdBusinessDetail());
                     binding.expInp.setText(profileModalClass.getUserInfo().get(0).getCdExperiences());
 
-                    binding.otherOrganizationInp.setFocusable(false);
-                    binding.businessDetailInp.setFocusable(false);
-                    binding.expInp.setFocusable(false);
-
-
+                    binding.otherOrganizationInp.setEnabled(false);
+                    binding.businessDetailInp.setEnabled(false);
+                    binding.expInp.setEnabled(false);
 
                 } else {
 
-                    progressDialog.dismiss();
+                  //  progressDialog.dismiss();
+
+                    binding.shimmerView.setVisibility(View.GONE);
+                    binding.shimmerView.stopShimmerAnimation();
+                    binding.dataLayout.setVisibility(View.VISIBLE);
                 }
             }
 
@@ -648,7 +700,11 @@ public class profile_frag extends Fragment {
             public void onFailure(Call<ProfileModalClass> call, Throwable t) {
                 call.cancel();
 
-                progressDialog.dismiss();
+              //  progressDialog.dismiss();
+
+                binding.shimmerView.setVisibility(View.GONE);
+                binding.shimmerView.stopShimmerAnimation();
+                binding.dataLayout.setVisibility(View.VISIBLE);
 
                 throw new RuntimeException("Test Crash for BceClube"); // Force a crash
             }
@@ -656,7 +712,7 @@ public class profile_frag extends Fragment {
 
     }
 
-    void setEditableFalse() {
+/*    void setEditableFalse() {
 
 //        binding.nameInp.setEnabled(false);
 //        binding.emailIdInp.setFocusable(false);
@@ -736,9 +792,9 @@ public class profile_frag extends Fragment {
         binding.businessDetailInp.setClickable(false);
         binding.expInp.setClickable(false);
 
-    }
+    }*/
 
-    void setEditableTrue() {
+/*    void setEditableTrue() {
 
 //        binding.nameInp.setEnabled(true);
 //        binding.emailIdInp.setFocusable(true);
@@ -818,7 +874,7 @@ public class profile_frag extends Fragment {
         binding.businessDetailInp.setClickable(true);
         binding.expInp.setClickable(true);
 
-    }
+    }*/
 
     private void closeKeyboard() {
         final InputMethodManager imm = (InputMethodManager) getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
